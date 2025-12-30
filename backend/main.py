@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import logging
+
+# -----------------------------
+# Logging setup (IMPORTANT)
+# -----------------------------
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -32,6 +39,7 @@ def root():
 
 @app.post("/early-access")
 def early_access(data: EarlyAccessRequest):
+    logger.info(f"🔥 RECEIVED EMAIL: {data.email}")
     early_access_emails.append(data.email)
     return {
         "message": "Email added successfully",
