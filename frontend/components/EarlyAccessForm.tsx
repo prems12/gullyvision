@@ -17,7 +17,7 @@ export default function EarlyAccessForm() {
     setStatus("loading");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/early-access", {
+      const res = await fetch("https://gullyvision.onrender.com/early-access", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
