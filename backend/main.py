@@ -1,3 +1,8 @@
+import logging
+logging.basicConfig(level=logging.INFO)
+
+logging.info("🚀 MAIN.PY LOADED")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
